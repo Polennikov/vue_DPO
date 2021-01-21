@@ -1,0 +1,72 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Перевод</title>
+      <script type = "text/javascript" src = "vue.js"></script>
+      <style type="text/css">
+      body{
+         background-color: #74b2ed;
+      }
+      .computed_props{
+         text-align: center;
+
+      }
+      div{
+         margin-top: 5px;
+         margin-bottom: 10px;
+      }
+      .rows{
+         margin: auto;
+         height: 35px;
+         width: 400px;
+         background-color: #0025ff;
+      }
+      </style>
+   </head>
+   <body>
+      <div class="rows"></div>
+      <div id = "computed_props" class="computed_props" >
+         <div>
+            <h4>Перевод измерений</h4>
+         </div>
+         <div>
+            Футы: <input type = "text" v-model = "length" /> = {{meters}} метров
+         </div>
+         <div>
+         Морские мили: <input тип = "text" V-model = "OceanLength"/> = {{metersOcean}} километров
+         </div>
+         <div>
+         Градусы: <input тип = "text" V-model = "degree"/> = {{radian}} радиан
+         <div/>
+         <div>
+         Цельсий: <input тип = "text" V-model = "cells"/> = {{faren}} фаренгейт
+         </div>
+         <div class="rows"></div>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+          el: '#computed_props',
+          data: {
+          length :"",
+          OceanLength :"",
+           degree :"",
+           cells :""
+            },
+          computed :{
+            meters : function() {
+               return this.length*0.3048;
+            },
+            metersOcean : function() {
+               return this.OceanLength*1.85;
+            },
+            radian : function() {
+               return (this.degree*3.14)/180;
+            },
+            faren : function() {
+               return (this.cells*(9/5))+32;
+            }
+          }
+         });
+      </script>
+   </body>
+</html>
