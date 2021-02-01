@@ -11,7 +11,7 @@ function getResume($dbconn)
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
     }
     else {
-        $err=[
+        $res=[
             "message" => "Резюме не найдено"
         ];
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
